@@ -30,7 +30,7 @@
 				</tr>
 				<tr>
 					<td>Gold</td>
-					<td><img src="../img/admin/gold.gif"> <?php echo $user['gold']; ?> <a href='admin.php?p=player&uid=<?php echo $id; ?>&g'><img src="../img/admin/edit.gif" title="Give Gold"></a>
+					<td><img src="../img/admin/gold.gif"> <?php echo $user['gold']; ?>
 				</tr>
 				<?php 	
 					if($_SESSION['access'] == ADMIN)
