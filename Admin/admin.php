@@ -127,6 +127,7 @@ $timeformat = new timeFormatGenerator;
 												<br />
 												<a href="#"><b>Natars & Nature</b></a>
 												<a href="?p=oasis">Populate Oases</b>
+												<a href="?p=npctribecreatenatar">Create Natar Account</b>
 												<a href="?p=natarend">Add WW Villages</a>
 												<a href="?p=natarbuildingplan">Add WW Buildingplan Villages</a>
 												<br />
