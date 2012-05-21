@@ -5,8 +5,8 @@
 ##  Filename       config.php                                                  ##
 ##  Version        4.8.5                                                       ##
 ##  Developed by:  Dzoki and Dixie Edited by Advocaite                         ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 
@@ -253,8 +253,8 @@ $requse = 0;
 ##  Filename       config.php                                                  ##
 ##  Version        4.8.5                                                       ##
 ##  Developed by:  Dzoki and Dixie Edited by Advocaite                         ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 

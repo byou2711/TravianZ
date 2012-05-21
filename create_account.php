@@ -6,7 +6,7 @@
 | Credits:     All the developers including the leaders:  |
 |              Advocaite & Dzoki & Donnchadh              |
 |                                                         |
-| Copyright:   TravianX Project All rights reserved       |
+| Copyright:   TravianMaX Project All rights reserved       |
 \** --------------------------------------------------- **/
 
 
@@ -49,7 +49,7 @@
  */
         $username = "Natars";
         $password = md5('013ab00e4' . rand(999999999999, 9999999999999999999999999) . 'f248588ed');
-        $email = "natars@travianx.com";
+        $email = "natars@TravianMaX.com";
         $tribe = 5;
         $desc = "********************
                     [#natars]

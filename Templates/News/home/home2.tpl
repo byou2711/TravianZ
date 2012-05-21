@@ -1,1 +1,1 @@
-<b><center>TravianX</center></b>
+<b><center>TravianMaX</center></b>

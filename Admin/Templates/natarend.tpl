@@ -10,9 +10,9 @@
 
 ## Developed by: advocaite ##
 
-## License: TravianX Project ##
+## License: TravianMaX Project ##
 
-## Copyright: TravianX (c) 2010-2011. All rights reserved. ##
+## Copyright: TravianMaX (c) 2010-2011. All rights reserved. ##
 
 ## ##
 

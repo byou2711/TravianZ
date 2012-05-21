@@ -1,7 +1,7 @@
 <?php
 
 # Devoloped by Songer
-# License: TravianX
+# License: TravianMaX
 # Litl thanx to: Dzoki, TTMTT.
 # Released in: 2012.03.16 22:00
 

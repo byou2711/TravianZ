@@ -1,7 +1,7 @@
 <?php
 ############################################################
 ##           DO NOT REMOVE THIS NOTICE                    ##
-##          ADVOCAITE ROCKS TRAVIANX NUTS                 ##
+##          ADVOCAITE ROCKS TravianMaX NUTS                 ##
 ##                  GIT HUB REV                           ##  
 ############################################################
 $dataarray = explode(",",$message->readingNotice['data']);

@@ -5,8 +5,8 @@
 ##  Filename       online.tpl                                                  ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked:      aggenkeech                                                  ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2012. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2012. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 error_reporting(0);

@@ -5,8 +5,8 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       Mailer.php                                                  ##
 ##  Developed by:  Dixie                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 
@@ -30,7 +30,7 @@ Click the following link in order to activate your account:
 ".SERVER."activate.php?code=".$act."
 
 Greetings,
-TravianX";
+TravianMaX";
 
 		$headers = "From: Mailer@".SERVER_NAME."\n";
 		//$headers .= 'MIME-Version: 1.0' . "\r\n";
@@ -62,7 +62,7 @@ on tab \"account\".
 
 In case you did not request a new password you may ignore this email.
 
-TravianX
+TravianMaX
 ";
 
 		$headers = "From: Mailer@".SERVER_NAME."\n";

@@ -3,7 +3,7 @@
 
   <link REL="shortcut icon" HREF="favicon.ico"/>
 
-	<title><?php if($_SESSION['access'] == ADMIN){ echo 'Admin Control Panel - TravianX'; } else if($_SESSION['access'] == MULTIHUNTER){ echo 'Multihunter Control Panel - TravianX'; } ?></title>    
+	<title><?php if($_SESSION['access'] == ADMIN){ echo 'Admin Control Panel - TravianMaX'; } else if($_SESSION['access'] == MULTIHUNTER){ echo 'Multihunter Control Panel - TravianMaX'; } ?></title>    
 
 	<link rel=stylesheet type="text/css" href="../img/admin/admin.css">
 
@@ -28,8 +28,8 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       admin_log.tpl                                               ##
 ##  Developed by:  Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 

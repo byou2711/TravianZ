@@ -6,7 +6,7 @@
 | Credits:     All the developers including the leaders:  |
 |              Advocaite & Dzoki & Donnchadh              |
 |                                                         |
-| Copyright:   TravianX Project All rights reserved       |
+| Copyright:   TravianMaX Project All rights reserved       |
 \** --------------------------------------------------- **/
 
    $tribe1 = mysql_query("SELECT SQL_CACHE * FROM ".TB_PREFIX."users WHERE tribe = 1");

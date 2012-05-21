@@ -4,9 +4,9 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       addTroops.tpl                                               ##
 ##  Developed by:  Dzoki & Advocatie                                           ##
-##  License:       TravianX Project                                            ##
+##  License:       TravianMaX Project                                            ##
 ##  Thanks to:     Dzoki & itay2277(Edit troops)                               ## 
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 

@@ -20,7 +20,7 @@
     </ul>
 
     <div class="lbox">
-	TravianX Team
+	TravianMaX Team
     </div>
     <br>
 

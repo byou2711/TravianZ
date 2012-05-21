@@ -1,9 +1,9 @@
 <?
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                             TRAVIANX                                             //
+//                                             TravianMaX                                             //
 //            Only for advanced users, do not edit if you dont know what are you doing!             //
-//                                Made by: Dzoki & Dixie (TravianX)                                 //
-//                              - TravianX = Travian Clone Project -                                //
+//                                Made by: Dzoki & Dixie (TravianMaX)                                 //
+//                              - TravianMaX = Travian Clone Project -                                //
 //                                 DO NOT REMOVE COPYRIGHT NOTICE!                                  //
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 ?>

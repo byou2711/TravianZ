@@ -6,8 +6,8 @@
 ##  Filename       ww.tpl                                                      ##
 ##  Developed by:  Dixie                                                       ##
 ##  Edited by:     Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 	$loopsame = ($building->isCurrent($id) || $building->isLoop($id))?1:0;

@@ -4,8 +4,8 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       createNatarAccount.php                                      ##
 ##  Developed by:  aggenkeech                                                  ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2012. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2012. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 
@@ -52,7 +52,7 @@ function generateBase($kid, $uid, $username)
 
 $username = "Natars";
 $password = md5('013ab00e4' . rand(999999999999, 9999999999999999999999999) . 'f248588ed');
-$email = "natars@travianx.com";
+$email = "natars@TravianMaX.com";
 $tribe = 5;
 $desc = "********************
             [#natars]

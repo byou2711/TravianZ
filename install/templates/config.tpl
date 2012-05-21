@@ -9,7 +9,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<p>
 	<span class="f10 c">SERVER RELATED</span>
 	<table><tr>
-	<td><span class="f9 c6">Server name:</span></td><td width="140"><input type="text" name="servername" id="servername" value="TravianX"></td></tr><tr>
+	<td><span class="f9 c6">Server name:</span></td><td width="140"><input type="text" name="servername" id="servername" value="TravianMaX"></td></tr><tr>
 	<td><span class="f9 c6">Server speed:</span></td><td><input name="speed" type="text" id="speed" value="1" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Troop speed:</span></td><td width="140"><input type="text" name="incspeed" id="incspeed" value="2" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Trader capacity (1 = 1x...):</span></td><td width="140"><input type="text" name="tradercap" id="tradercap" value="1" size="2"></td></tr><tr>
@@ -142,7 +142,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	  <option value="true" disabled="disabled">Yes</option></select></span><br /><br />
 	<span class="f9 c6 c2">GPack Design:</span><span class="c3"><select name="gp_locate">
 	  <option value="gpack/travian_default/" selected="selected">Travian Default
-	  <option value="gpack/travianx_v1/">TravianX v1 by Dzoki</option></select></span><br /><br />
+	  <option value="gpack/TravianMaX_v1/">TravianMaX v1 by Dzoki</option></select></span><br /><br />
 	
 -->
 <!-- </RIGHT BOX - GPACK RELATED> -->

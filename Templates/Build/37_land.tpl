@@ -1,6 +1,6 @@
 <?php
 	/* Hero's mansion oases page
-	Copyright: Travianx Project */
+	Copyright: TravianMaX Project */
 
 	$oasisarray = $database->getOasis($village->wid);
 if($_GET['gid']==37 && isset($_GET['del'])){

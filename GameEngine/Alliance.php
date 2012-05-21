@@ -7,11 +7,11 @@
 |
 |   Project owner:   Dzoki < dzoki.travian@gmail.com >
 |  
-|   This script is property of TravianX Project. You are allowed to change
-|   its source and release it under own name, not under name `TravianX`. 
+|   This script is property of TravianMaX Project. You are allowed to change
+|   its source and release it under own name, not under name `TravianMaX`. 
 |   You have no rights to remove copyright notices.
 |
-|   TravianX All rights reserved
+|   TravianMaX All rights reserved
 |
 */
 

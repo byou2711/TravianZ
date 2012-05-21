@@ -5,7 +5,7 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       banned.php                                                  ##
 ##  Developed by:  yi12345                                                     ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 

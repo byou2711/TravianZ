@@ -6,7 +6,7 @@
 | Credits:     All the developers including the leaders:  |
 |              Advocaite & Dzoki & Donnchadh              |
 |                                                         |
-| Copyright:   TravianX Project All rights reserved       |
+| Copyright:   TravianMaX Project All rights reserved       |
 \** --------------------------------------------------- **/
 
 ?>
@@ -19,7 +19,7 @@
 
 									<center><br />
 
-									<div class="copyright">&copy; 2010 - 2011 TravianX All rights reserved</div>
+									<div class="copyright">&copy; 2010 - 2011 TravianMaX All rights reserved</div>
 
 									<div class="copyright">Server running on: <b><font color="Red">v6.0.0</font></b>
 </div>

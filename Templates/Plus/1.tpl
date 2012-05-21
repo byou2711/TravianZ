@@ -1,6 +1,6 @@
 <!--
 ** Made by: Dzoki
-** - TravianX -
+** - TravianMaX -
 ** DO NOT REMOVE COPYRIGHT NOTICE!
 -->
 <?php

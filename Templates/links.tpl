@@ -4,8 +4,8 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       links.tpl                                                   ##
 ##  Developed by:  Slim, Manuel Mannhardt < manuel_mannhardt@web.de >          ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 

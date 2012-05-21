@@ -1,10 +1,10 @@
 <?php
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                             TRAVIANX                                             //
+//                                             TravianMaX                                             //
 //            Only for advanced users, do not edit if you dont know what are you doing!             //
-//                                Made by: Dzoki & Dixie (TravianX)                                 //
-//                              - TravianX = Travian Clone Project -                                //
+//                                Made by: Dzoki & Dixie (TravianMaX)                                 //
+//                              - TravianMaX = Travian Clone Project -                                //
 //                                 DO NOT REMOVE COPYRIGHT NOTICE!                                  //
 //////////////////////////////////////////////////////////////////////////////////////////////////////
                                     //                         //
@@ -71,7 +71,7 @@ define("NOT_OPENED_YET","Server not started yet.");
 define("REGISTER_CLOSED","The register is closed. You can't register to this server.");
 
 //COPYRIGHT
-define("TRAVIAN_COPYRIGHT","TravianX 100% Open Source Travian Clone.");
+define("TRAVIAN_COPYRIGHT","TravianMaX 100% Open Source Travian Clone.");
 
 //BUILD.TPL
 define("CUR_PROD","Current production");
@@ -281,7 +281,7 @@ define("SE","South East");
 define("RANDOM","random");
 define("ACCEPT_RULES"," I accept the game rules and general terms and conditions.");
 define("ONE_PER_SERVER","Each player may only own ONE account per server.");
-define("BEFORE_REGISTER","Before you register an account you should read the <a href='../anleitung.php' target='_blank'>instructions</a> of TravianX to see the specific advantages and disadvantages of the three tribes.");
+define("BEFORE_REGISTER","Before you register an account you should read the <a href='../anleitung.php' target='_blank'>instructions</a> of TravianMaX to see the specific advantages and disadvantages of the three tribes.");
 define("BUILDING_UPGRADING","Building:");
 define("HOURS","hours");
 

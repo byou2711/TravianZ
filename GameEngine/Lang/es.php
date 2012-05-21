@@ -1,10 +1,10 @@
 <?php
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                             TRAVIANX                                             //
+//                                             TravianMaX                                             //
 //            Only for advanced users, do not edit if you dont know what are you doing!             //
-//                                Made by: Dzoki & Dixie (TravianX)                                 //
-//                              - TravianX = Travian Clone Project -                                //
+//                                Made by: Dzoki & Dixie (TravianMaX)                                 //
+//                              - TravianMaX = Travian Clone Project -                                //
 //                                 DO NOT REMOVE COPYRIGHT NOTICE!                                  //
 //////////////////////////////////////////////////////////////////////////////////////////////////////
                                     //                         //
@@ -61,7 +61,7 @@ define("ATAG_EXIST","Etiqueta en uso");
 define("ANAME_EXIST","Nombre en uso");
 
 //COPYRIGHT
-define("TRAVIAN_COPYRIGHT","TravianX Clon de Travian 100% C&oacute;digo Libre.");
+define("TRAVIAN_COPYRIGHT","TravianMaX Clon de Travian 100% C&oacute;digo Libre.");
 
 //BUILD.TPL
 define("CUR_PROD","Producci&oacute;n actual ");

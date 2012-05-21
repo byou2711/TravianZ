@@ -7,11 +7,11 @@
 |
 |   Developed by:   Dzoki < dzoki.travian@gmail.com >
 |  
-|   This script is property of TravianX Project. You are allowed to change
+|   This script is property of TravianMaX Project. You are allowed to change
 |   its source and release it, but you have no rights to remove copyright
 |   notices.
 |
-|   TravianX All rights reserved
+|   TravianMaX All rights reserved
 |
 */
 

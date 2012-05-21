@@ -4,9 +4,9 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       village.php                                                 ##
 ##  Developed by:  Dzoki & Advocatie                                           ##
-##  License:       TravianX Project                                            ##
+##  License:       TravianMaX Project                                            ##
 ##  Thanks to:     Dzoki & itay2277(Edit some additions)                       ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##  Improved:      aggenkeech                                                  ##
 #################################################################################
 error_reporting(0);

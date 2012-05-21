@@ -5,7 +5,7 @@
 +---------------------------------------------------------+
 | Developed by:  Manni < manuel_mannhardt@web.de >        |
 |                Dzoki < dzoki.travian@gmail.com >        |
-| Copyright:     TravianX Project All rights reserved     |
+| Copyright:     TravianMaX Project All rights reserved     |
 \*-------------------------------------------------------*/
     
     if($hero_info['unit'] == 1) {

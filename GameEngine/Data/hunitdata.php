@@ -4,8 +4,8 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       unitdata.php                                                ##
 ##  Developed by:  Akakori                                                     ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 $getheroinfo = mysql_query("SELECT * FROM ".TB_PREFIX."hero  WHERE `uid`='".$session->uid."'") or die(mysql_error());

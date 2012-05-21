@@ -1,10 +1,10 @@
 <?php
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                             TRAVIANX                                             //
+//                                             TravianMaX                                             //
 //            Only for advanced users, do not edit if you dont know what are you doing!             //
-//                                Made by: Dzoki & Dixie (TravianX)                                 //
-//                              - TravianX = Travian Clone Project -                                //
+//                                Made by: Dzoki & Dixie (TravianMaX)                                 //
+//                              - TravianMaX = Travian Clone Project -                                //
 //                                 DO NOT REMOVE COPYRIGHT NOTICE!                                  //
 //////////////////////////////////////////////////////////////////////////////////////////////////////
                                     //                         //
@@ -73,7 +73,7 @@ define("ANAME_EXIST","Название принято");
 define("NOT_OPENED_YET","Сервер еще не запущен.");
 
 //COPYRIGHT
-define("TRAVIAN_COPYRIGHT","TravianX 100% Open Source Travian Clone.");
+define("TRAVIAN_COPYRIGHT","TravianMaX 100% Open Source Travian Clone.");
 
 //BUILD.TPL
 define("CUR_PROD","Текущее производство");
@@ -283,7 +283,7 @@ define("SE","Юго-восток");
 define("RANDOM","случайно");
 define("ACCEPT_RULES"," Я согласен с условиями и предупреждениями.");
 define("ONE_PER_SERVER","Каждый игром имеет право иметь только один аккаунт на сервере.");
-define("BEFORE_REGISTER","Перед тем как зарегистрироваться прочитайте <a href='../anleitung.php' target='_blank'>инструкции</a> TravianX чтобы понять особенности различных игровых племен на сервере.");
+define("BEFORE_REGISTER","Перед тем как зарегистрироваться прочитайте <a href='../anleitung.php' target='_blank'>инструкции</a> TravianMaX чтобы понять особенности различных игровых племен на сервере.");
 define("BUILDING_UPGRADING","Строительство:");
 define("HOURS","ч.");
 

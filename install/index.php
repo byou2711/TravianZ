@@ -10,7 +10,7 @@ if(!isset($_GET['s'])) {
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>TravianX Installation</title>
+    <title>TravianMaX Installation</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="pragma" content="no-cache" />
@@ -50,7 +50,7 @@ if(!isset($_GET['s'])) {
 					}
 					?>
 				<div class="headline"><center>
-				<span class="f18 c5">TravianX Installation Script</span>
+				<span class="f18 c5">TravianMaX Installation Script</span>
 				</center></div>
 
                 <?php 
@@ -96,7 +96,7 @@ if(!isset($_GET['s'])) {
                 <br />
 
                 <div class="copyright">
-                    &copy; 2010 - 2011 TravianX All rights reserved
+                    &copy; 2010 - 2011 TravianMaX All rights reserved
                 </div>
 
                 <div class="copyright">

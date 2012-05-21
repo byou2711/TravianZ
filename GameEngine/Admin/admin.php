@@ -1,4 +1,4 @@
-<?php###################################################################################              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 #### --------------------------------------------------------------------------- ####  Filename       admin.php                                                   ####  Developed by:  Dzoki                                                       ####  License:       TravianX Project                                            ####  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ####                                                                             ###################################################################################
+<?php###################################################################################              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 #### --------------------------------------------------------------------------- ####  Filename       admin.php                                                   ####  Developed by:  Dzoki                                                       ####  License:       TravianMaX Project                                            ####  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ####                                                                             ###################################################################################
 session_start();
 include("../GameEngine/Database.php");
 include("../GameEngine/Admin/database.php");  
@@ -7,7 +7,7 @@ include("../GameEngine/Admin/database.php");
 <html>
 <head>
   <link REL="shortcut icon" HREF="favicon.ico"/>
-	<title>Admin Control Panel - TravianX</title>    
+	<title>Admin Control Panel - TravianMaX</title>    
 	<link rel=stylesheet type="text/css" href="../img/admin/admin.css">
 	<link rel=stylesheet type="text/css" href="../img/admin/acp.css">
 	<link rel=stylesheet type="text/css" href="../img/../img.css">

@@ -5,8 +5,8 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       medals.php                                                  ##
 ##  Developed by:  aggenkeech                                                  ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianMaX Project                                            ##
+##  Copyright:     TravianMaX (c) 2010-2011. All rights reserved.                ##
 #################################################################################
 
 include_once("../../Account.php");
