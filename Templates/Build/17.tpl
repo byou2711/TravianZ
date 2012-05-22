@@ -14,7 +14,7 @@ var carry = <?php echo $market->maxcarry; ?>;
 //-->
 </script>
 <?php
-$allres = "".$_POST['r1']."+".$_POST['r2']."+".$_POST['r3']."+".$_POST['r4']."";
+$allres = $_POST['r1']+$_POST['r2']+$_POST['r3']+$_POST['r4'];
 if($_POST['x']!="" && $_POST['y']!=""){
 	$getwref = $database->getVilWref($_POST['x'],$_POST['y']);
 	$checkexist = $database->checkVilExist($getwref);
@@ -23,7 +23,7 @@ else if($_POST['dname']!=""){
 	$getwref = $database->getVillageByName($_POST['dname']);
 	$checkexist = $database->checkVilExist($getwref);
 }
-if(isset($_POST['ft'])=='check' && $allres!=0 && ($_POST['x']!="" && $_POST['y']!="" or $_POST['dname']!="") && $checkexist){
+if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $market->maxcarry && ($_POST['x']!="" && $_POST['y']!="" or $_POST['dname']!="") && $checkexist){
 ?>
 <form method="POST" name="snd" action="build.php"> 
 <input type="hidden" name="ft" value="mk1">
@@ -33,26 +33,26 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && ($_POST['x']!="" && $_POST['y']
 <input type="hidden" name="dname" value="<?php echo $_POST['dname']; ?>">
 <table id="send_select" class="send_res" cellpadding="1" cellspacing="1">
 	<tr>
-		<td class="ico"><img class="r1" src="img/x.gif" alt="Fa" title="Fa" /></td> 
+		<td class="ico"><img class="r1" src="img/x.gif" alt="Lumber" title="Lumber" /></td> 
 		<td class="nam"> Wood</td> 
 		<td class="val"><input class="text disabled" type="text" name="r1" id="r1" value="<?php echo $_POST['r1']; ?>" readonly="readonly"></td> 
 		<td class="max"> / <span class="none"><B><?php echo $market->maxcarry; ?></B></span> </td> 
 	</tr>
     <tr> 
-		<td class="ico"><img class="r2" src="img/x.gif" alt="Agyag" title="Agyag" /></td> 
+		<td class="ico"><img class="r2" src="img/x.gif" alt="Clay" title="Clay" /></td> 
 		<td class="nam"> Clay</td> 
 		<td class="val"><input class="text disabled" type="text" name="r2" id="r2" value="<?php echo $_POST['r2']; ?>" readonly="readonly"></td> 
 		<td class="max"> / <span class="none"><b><?php echo$market->maxcarry; ?></b></span> </td> 
 	</tr>
     <tr> 
-		<td class="ico"><img class="r3" src="img/x.gif" alt="Vas?rc" title="Vas?rc" /></td> 
+		<td class="ico"><img class="r3" src="img/x.gif" alt="Iron" title="Iron" /></td> 
 		<td class="nam"> Iron</td> 
 		<td class="val"><input class="text disabled" type="text" name="r3" id="r3" value="<?php echo $_POST['r3']; ?>" readonly="readonly"> 
 		</td> 
 		<td class="max"> / <span class="none"><b><?php echo $market->maxcarry; ?></b></span> </td> 
 	</tr>
     <tr> 
-		<td class="ico"><img class="r4" src="img/x.gif" alt="B?za" title="B?za" /></td> 
+		<td class="ico"><img class="r4" src="img/x.gif" alt="Crop" title="Crop" /></td> 
 		<td class="nam"> Wheat</td> 
 		<td class="val"> <input class="text disabled" type="text" name="r4" id="r4" value="<?php echo $_POST['r4']; ?>" readonly="readonly"> 
 		</td> 
@@ -200,6 +200,8 @@ if(isset($_POST['ft'])=='check'){
 		$error = '<span class="error"><b>Resources not selected.</b></span>';
     }elseif(!$_POST['x'] && !$_POST['y'] && !$_POST['dname']){
 		$error = '<span class="error"><b>Enter coordinates or village name.</b></span>';
+    }elseif($allres <= $market->maxcarry){
+		$error = '<span class="error"><b>Too few merchants.</b></span>';
     }
     echo $error;
 }
