@@ -5,14 +5,14 @@
 ##                                                                             ##
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
-##  Project:       ZravianX                                                    ##
+##  Project:       TravianMaX                                                    ##
 ##  Version:       2011.11.06                                                  ##
 ##  Filename:      Templates/Travian/3.6/Tutorial/1.tpl                        ##
 ##  Edited by:     ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
-##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
-##  URLs:          http://zravianx.zzjhons.com                                 ##
-##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##  Copyright:     TravianMaX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://TravianMaX.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/TravianMaX                      ##
 ##                                                                             ##
 #################################################################################
 ?>
@@ -62,7 +62,7 @@
                 <li><a href="spielregeln.php">Game Rules</a>|</li>
                 <li><a href="agb.php">Terms</a>|</li>
                 <li><a href="impressum.php">Imprint</a></li>
-                <li class="copyright">&copy; 2011 - ZravianX - All right reserved</li>
+                <li class="copyright">&copy; 2011 - TravianMaX - All right reserved</li>
             </ul>
         </div>
     </div> 

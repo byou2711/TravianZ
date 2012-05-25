@@ -5,15 +5,15 @@
 ##                                                                             ##
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
-##  Project:       ZravianX                                                    ##
+##  Project:       TravianMaX                                                    ##
 ##  Version:       2011.11.30                                                  ##
 ##  Filename:      index.php                            					   ##
 ##  Developed by:  Dzoki & Advocaite & Donnchadh                               ##
 ##  Reworked by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
-##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
-##  URLs:          http://zravianx.zzjhons.com                                 ##
-##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##  Copyright:     TravianMaX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://TravianMaX.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/TravianMaX                      ##
 ##                                                                             ##
 #################################################################################
 
@@ -28,7 +28,7 @@ include ("GameEngine/Lang/".LANG.".php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Powered by ZravianX - <?php echo SERVER_NAME; ?></title>
+    <title>Powered by TravianMaX - <?php echo SERVER_NAME; ?></title>
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="gpack/travian/main.css" />
     <link rel="stylesheet" type="text/css" href="gpack/travian/flaggs.css" />
@@ -182,7 +182,7 @@ include ("GameEngine/Lang/".LANG.".php");
                     <li><a href="spielregeln.php"><?php echo SPIELREGELN; ?></a>|</li>
                     <li><a href="agb.php"><?php echo AGB; ?></a>|</li>
                     <li><a href="impressum.php"><?php echo IMPRINT; ?></a></li>
-                    <li class="copyright">&copy; 2011 - ZravianX - All rights reserved</li>
+                    <li class="copyright">&copy; 2011 - TravianMaX - All rights reserved</li>
 				</ul>
 			</div>
 		</div>
