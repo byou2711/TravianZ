@@ -547,6 +547,7 @@ class Automation {
             $fromcoor = $database->getCoor($data['to']);
             $isoasis = $database->isVillageOases($data['to']);
             $AttackArrivalTime = $data['endtime'];
+			$AttackerWref = $data['from'];
             if ($isoasis == 0){
             $Attacker['id'] = $database->getUserField($database->getVillageField($data['from'],"owner"),"id",0);
             $Defender['id'] = $database->getUserField($database->getVillageField($data['to'],"owner"),"id",0);
@@ -895,7 +896,7 @@ class Automation {
                                         $stonemason = "1";
 
         }
-            $battlepart = $battle->calculateBattle($Attacker,$Defender,$def_wall,$att_tribe,$def_tribe,$residence,$attpop,$defpop,$type,$def_ab,$att_ab,$tblevel,$stonemason,$walllevel,$AttackerID,$DefenderID);
+            $battlepart = $battle->calculateBattle($Attacker,$Defender,$def_wall,$att_tribe,$def_tribe,$residence,$attpop,$defpop,$type,$def_ab,$att_ab,$tblevel,$stonemason,$walllevel,$AttackerID,$DefenderID,$AttackerWref);
 
             //units attack string for battleraport
             $unitssend_att = ''.$data['t1'].','.$data['t2'].','.$data['t3'].','.$data['t4'].','.$data['t5'].','.$data['t6'].','.$data['t7'].','.$data['t8'].','.$data['t9'].','.$data['t10'].'';
@@ -1068,13 +1069,41 @@ class Automation {
             //top 10 attack and defence update
             $totaldead_att = $dead1+$dead2+$dead3+$dead4+$dead5+$dead6+$dead7+$dead8+$dead9+$dead10+$dead11;
 			$totalattackdead += $totaldead_att;
+			$troopsdead1 = $dead1;
+			$troopsdead2 = $dead2;
+			$troopsdead3 = $dead3;
+			$troopsdead4 = $dead4;
+			$troopsdead5 = $dead5;
+			$troopsdead6 = $dead6;
+			$troopsdead7 = $dead7;
+			$troopsdead8 = $dead8;
+			$troopsdead9 = $dead9;
+			$troopsdead10 = $dead10;
+			$troopsdead11 = $dead11;
             for($i=1;$i<=50;$i++) {
             $totaldead_def += $dead[''.$i.''];
             }
+			$totaldead_def += $dead['hero'];
             if ($Attacker['uhero'] != 0){
              $heroxp = $totaldead_def;
              $database->modifyHeroXp("experience",$heroxp,$from['owner']);
             }
+            $Defender1 = $database->getUnit($data['to']);
+				if($Defender1['hero'] > 0){
+				$defheroowner = $database->getVillageField($Defender1['vref'],"owner");
+				$defheroxp = $totaldead_att;
+				$database->modifyHeroXp("experience",$defheroxp,$defheroowner);
+				}
+            $enforcementarray1 = $database->getEnforceVillage($data['to'],0);
+            if(count($enforcementarray1) > 0) {
+            foreach($enforcementarray1 as $enforce1) {
+							if($enforce1['hero'] > 0){
+							$enforceowner = $database->getVillageField($enforce1['from'],"owner");
+							$reinfheroxp = $totaldead_att;
+							$database->modifyHeroXp("experience",$reinfheroxp,$enforceowner);
+							}
+            }
+                        }
             $database->modifyPoints($toF['owner'],'dpall',$totaldead_att );
             $database->modifyPoints($from['owner'],'apall',$totaldead_def);
             $database->modifyPoints($toF['owner'],'dp',$totaldead_att );
@@ -1746,10 +1775,53 @@ class Automation {
         //chiefing village
         //there are senators
         if(($data['t9']-$dead9)>0){
+
+		    $palacelevel = $database->getResourceLevel($from['wref']);
+			for($i=1;$i<=40;$i++) {
+			if($palacelevel['f'.$i.'t'] == 26){
+			$plevel = $i;
+			}else if($palacelevel['f'.$i.'t'] == 25){
+			$plevel = $i;
+			}
+			}
+            if($palacelevel['f'.$plevel] < 10){
+               $canconquer = 0;
+            }
+            elseif($palacelevel['f'.$plevel] < 15){
+               $canconquer = 1;
+            }
+            elseif($palacelevel['f'.$plevel] < 20){
+               $canconquer = 2;
+            }
+            else{
+               $canconquer = 3;
+            }
+
+		    $exp1 = $database->getVillageField($from['wref'],'exp1');
+            $exp2 = $database->getVillageField($from['wref'],'exp2');
+            $exp3 = $database->getVillageField($from['wref'],'exp3');
+            if($exp1 == 0){
+               $villexp = 0;
+            }
+            elseif($exp2 == 0){
+               $villexp = 1;
+            }
+            elseif($exp2 == 0){
+               $villexp = 2;
+            }
+            else{
+               $villexp = 3;
+            }
             $varray = $database->getProfileVillages($to['owner']);
+			$varray1 = count($database->getProfileVillages($from['owner']));
+			$mode = CP; 
+			$cp_mode = $GLOBALS['cp'.$mode];
+			$need_cps = $cp_mode[$varray1];
+			$user_cps = $database->getUserField($from['owner'],"cp",0);
             //kijken of laatste dorp is, of hoofddorp
-            if(count($varray)!='1' AND $to['capital']!='1'){
-			if($to['owenr']!=3 AND $to['name']!='WW Buildingplan'){
+			if($user_cps >= $need_cps){
+            if(count($varray)!='1' AND $to['capital']!='1' AND $villexp < $canconquer){
+			if($to['owner']!=3 OR $to['name']!='WW Buildingplan'){
                 //if there is no Palace/Residence
                 for ($i=18; $i<39; $i++){
                     if ($database->getFieldLevel($data['to'],"".$i."t")==25 or $database->getFieldLevel($data['to'],"".$i."t")==26){
@@ -1759,9 +1831,15 @@ class Automation {
                 }
                 if(!isset($nochiefing)){
                     //$info_chief = "".$chief_pic.",You don't have enought CP to chief a village.";
+					if($this->getTypeLevel(37,$data['to']) > 0){
                     for ($i=0; $i<($data['t9']-$dead9); $i++){
                     $rand+=rand(15,25);
                     }
+					}else{
+                    for ($i=0; $i<($data['t9']-$dead9); $i++){
+                    $rand+=rand(5,15);
+					}
+					}
                     //loyalty is more than 0
                     if(($toF['loyalty']-$rand)>0){
                         $info_chief = "".$chief_pic.",The loyalty was lowered from <b>".floor($toF['loyalty'])."</b> to <b>".floor($toF['loyalty']-$rand)."</b>.";
@@ -1831,6 +1909,10 @@ class Automation {
             } else {
                 $info_chief = "".$chief_pic.",You cant take over this village.";
             }
+            } else {
+                $info_chief = "".$chief_pic.",Not enough culture points.";
+            }
+			unset($plevel);
         }
 
 if($data['t11'] > 0){ 
@@ -1913,8 +1995,8 @@ if($data['t11'] > 0){
                         $walllevel =0;
                         $rplevel =0;
                     }
-$palaceimg = "<img src=\"<?php echo GP_LOCATE; ?>img/g/g26.gif\" height=\"30\" width=\"24\" alt=\"Palace\" title=\"Palace\" />";
-$crannyimg = "<img src=\"<?php echo GP_LOCATE; ?>img/g/g23.gif\" height=\"30\" width=\"24\" alt=\"Cranny\" title=\"Cranny\" />";
+$palaceimg = "<img src=\"".GP_LOCATE."img/g/g26.gif\" height=\"20\" width=\"15\" alt=\"Palace\" title=\"Palace\" />";
+$crannyimg = "<img src=\"".GP_LOCATE."img/g/g23.gif\" height=\"20\" width=\"15\" alt=\"Cranny\" title=\"Cranny\" />";
                 $info_spy = "".$spy_pic.",".$palaceimg." Residance/Palace Level : ".$rplevel."
 				<br>".$crannyimg." Cranny level: ".$crannylevel."<br><br>Wall Level : ".$walllevel."";
 
@@ -1983,23 +2065,7 @@ $crannyimg = "<img src=\"<?php echo GP_LOCATE; ?>img/g/g23.gif\" height=\"30\" w
 				if($chiefing_village != 1){
                 $database->addMovement(4,$to['wref'],$from['wref'],$data['ref'],time(),$endtime);
 				}else{
-				$villreinf = $database->addEnforce($data);
-				$villtribe = $database->getUserField($from['owner'],"tribe",0);
-				$unittribe = $villtribe-1;
-				if($unittribe == 0){
-				$unittribe = "";
-				}
-				$database->modifyEnforce($villreinf,$unittribe.'1',$data['t1']-$dead1,1);
-				$database->modifyEnforce($villreinf,$unittribe.'2',$data['t2']-$dead2,1);
-				$database->modifyEnforce($villreinf,$unittribe.'3',$data['t3']-$dead3,1);
-				$database->modifyEnforce($villreinf,$unittribe.'4',$data['t4']-$dead4,1);
-				$database->modifyEnforce($villreinf,$unittribe.'5',$data['t5']-$dead5,1);
-				$database->modifyEnforce($villreinf,$unittribe.'6',$data['t6']-$dead6,1);
-				$database->modifyEnforce($villreinf,$unittribe.'7',$data['t7']-$dead7,1);
-				$database->modifyEnforce($villreinf,$unittribe.'8',$data['t8']-$dead8,1);
-				$database->modifyEnforce($villreinf,$unittribe.'9',$data['t9']-$dead9-1,1);
-				$database->modifyEnforce($villreinf,$unittribe.'10',$data['t10']-$dead10,1);
-				$database->modifyEnforce($villreinf,$unittribe.'11',$data['t11']-$dead11,1);
+				$database->addEnforce2($data,$owntribe,$troopsdead1,$troopsdead2,$troopsdead3,$troopsdead4,$troopsdead5,$troopsdead6,$troopsdead7,$troopsdead8,$troopsdead9,$troopsdead10,$troopsdead11);
 				}
                 // send the bounty on type 6.
                 if($type !== 1)
@@ -2035,7 +2101,7 @@ $crannyimg = "<img src=\"<?php echo GP_LOCATE; ?>img/g/g23.gif\" height=\"30\" w
 			}
 			unset($Attacker);
             unset($Defender);
-            unset($Enforce);
+            unset($enforce);
             unset($unitssend_att);
             unset($unitssend_def);
             unset($battlepart);
@@ -2056,7 +2122,6 @@ $crannyimg = "<img src=\"<?php echo GP_LOCATE; ?>img/g/g23.gif\" height=\"30\" w
 			unset($herosend_def);
 			unset($deadhero);
 			unset($heroxp);
-			unset($dead11);
 			unset($AttackerID);
 			unset($DefenderID);
 			unset($totalsend_alldef);
@@ -2064,6 +2129,24 @@ $crannyimg = "<img src=\"<?php echo GP_LOCATE; ?>img/g/g23.gif\" height=\"30\" w
 			unset($totaldead_def);
 			unset($unitsdead_att_check);
 			unset($totalattackdead);
+            unset($Defender1);
+            unset($enforce1);
+			unset($defheroowner);
+			unset($enforceowner);
+			unset($defheroxp);
+            unset($reinfheroxp);
+            unset($AttackerWref);
+            unset($troopsdead1);
+            unset($troopsdead2);
+            unset($troopsdead3);
+            unset($troopsdead4);
+            unset($troopsdead5);
+            unset($troopsdead6);
+            unset($troopsdead7);
+            unset($troopsdead8);
+            unset($troopsdead9);
+            unset($troopsdead10);
+            unset($troopsdead11);
            }
             if(file_exists("GameEngine/Prevention/sendunits.txt")) {
                 @unlink("GameEngine/Prevention/sendunits.txt");
