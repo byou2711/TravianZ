@@ -99,9 +99,6 @@ if(!isset($_GET['s'])) {
                     &copy; 2010 - 2011 TravianMaX All rights reserved
                 </div>
 
-                <div class="copyright">
-                    Server running on: <b><font color="red">v6.0.0</font></b>
-                </div>
             </div>
 
             <div id="cfoot"></div>
