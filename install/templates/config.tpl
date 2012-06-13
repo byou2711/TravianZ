@@ -89,7 +89,16 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 				<option value="True">True</option>
 				<option value="False" selected="selected">False</option>
 				</select>
-		</td></tr><tr></tr>			
+		</td></tr><tr></tr>
+	<td><span class="f9 c6">Peace system:</span></td><td>
+				<select name="peace">
+				<option value="0" selected="selected">None</option>
+				<option value="1">Normal</option>
+				<option value="2">Christmas</option>
+				<option value="3">New Year</option>
+				<option value="4">Easter</option>				
+				</select>
+		</td></tr><tr></tr>
 		</table>
 	</p>
 	
@@ -118,7 +127,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<td><span class="f9 c6">Prefix:</span></td><td><input type="text" name="prefix" id="prefix" value="s1_" size="5"></td></tr>
 	<td><span class="f9 c6">Type:</span></td><td><select name="connectt">
 	  <option value="0" selected="selected">MYSQL</option>
-	  <option value="1" disabled="disabled">MYSQLi</option>
+	  <option value="1" disabled="disabled">MYSQLi (NOT DONE)</option>
 	</select></td></tr>
 	</table>
 	</p>
@@ -169,44 +178,44 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	</p>
 	
 	<p>
-	<span class="f10 c">LOG RELATED</span>
+	<span class="f10 c">LOG RELATED (You should disable them)</span>
 	<table><tr>
 	<td><span class="f9 c6">Log Building:</span></td><td><select name="log_build">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log Tech:</span></td><td><select name="log_tech">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log Login:</span></td><td><select name="log_login">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr>
  	 <tr>
 	<td><span class="f9 c6">Log Gold:</span></td><td><select name="log_gold_fin">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr>
 	<tr>	<td><span class="f9 c6">Log Admin:</span></td><td><select name="log_admin">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr>
 	<tr>	<td><span class="f9 c6">Log War:</span></td><td><select name="log_war">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log Market:</span></td><td><select name="log_market">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log Illegal:</span></td><td><select name="log_illegal">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log :</span></td><td><select name="">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr>
 	</table>
 	</p>
@@ -223,14 +232,14 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Limit Mailbox:</span></td><td><select name="limit_mailbox">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
-	</select></td></tr>
-	<tr><td><span class="f9 c6">Max mails:</span></td><td><input type="text" name="max_mails" id="max_mails" value="30" size="4"></td></tr>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
+	</select> (NOT DONE)</td></tr>
+	<tr><td><span class="f9 c6">Max mails:</span></td><td><input type="text" name="max_mails" id="max_mails" value="30" size="4"> (NOT DONE)</td></tr>
 	 <tr>
 	<td><span class="f9 c6">Demolish - lvl required:</span></td><td><select name="demolish">
 			<option value="5">5</option>
-			<option value="10" selected="selected">10</option>
+			<option value="10" selected="selected">10 - Default</option>
 			<option value="15">15</option>
 			<option value="20">20</option>
 	</select></td></tr>

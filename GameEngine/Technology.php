@@ -393,7 +393,16 @@ class Technology {
 			}
 			}
 			if($i>=4 && $i<=6 && $dataarray['drinking'] <= $buildarray['f'.$horsedrinking]) {
+			if(isset($horsedrinking)){
+			if(($i==4 && $buildarray['f'.$horsedrinking] >= 10)
+			|| ($i==5 && $buildarray['f'.$horsedrinking] >= 15)
+			|| ($i==6 && $buildarray['f'.$horsedrinking] == 20)) {
 			$upkeep += ($dataarray['pop']-1) * $array[$unit];
+			} else {
+			$upkeep += $dataarray['pop'] * $array[$unit];
+			}}else{
+			$upkeep += $dataarray['pop'] * $array[$unit];
+			}
 			}else{
 			$upkeep += $dataarray['pop'] * $array[$unit];
 			}
@@ -401,7 +410,22 @@ class Technology {
          //   $unit = "hero";
          //   global $$unit;
          //   $dataarray = $$unit; 
-           $upkeep += $array['hero'] * 6;
+			$upkeep += $array['hero'] * 6;
+			$artefact = count($database->getOwnUniqueArtefactInfo2($session->uid,4,3,0));
+			$artefact1 = count($database->getOwnUniqueArtefactInfo2($vid,4,1,1));
+			$artefact2 = count($database->getOwnUniqueArtefactInfo2($session->uid,4,2,0));
+			if($artefact > 0){
+			$upkeep /= 2;
+			$upkeep = round($upkeep);
+			}else if($artefact1 > 0){
+			$upkeep /= 2;
+			$upkeep = round($upkeep);
+			}else if($artefact2 > 0){
+			$upkeep /= 4;
+			$upkeep = round($upkeep);
+			$upkeep *= 3;
+			$upkeep = round($upkeep);
+			}
 		return $upkeep;
 	}
 

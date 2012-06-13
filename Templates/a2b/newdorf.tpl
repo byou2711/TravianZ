@@ -5,15 +5,24 @@ $newvillage = $database->getMInfo($_GET['id']);
 $eigen = $database->getCoor($village->wid);
 $from = array('x'=>$eigen['x'], 'y'=>$eigen['y']);
 $to = array('x'=>$newvillage['x'], 'y'=>$newvillage['y']);
-$time = $generator->procDistanceTime($from,$to,300,0);
+      		$artefact = count($database->getOwnUniqueArtefactInfo2($session->uid,2,3,0));
+			$artefact1 = count($database->getOwnUniqueArtefactInfo2($village->wid,2,1,1));
+			$artefact2 = count($database->getOwnUniqueArtefactInfo2($session->uid,2,2,0));
+			if($artefact > 0){
+			$fastertroops = 3;
+			}else if($artefact1 > 0){
+			$fastertroops = 2;
+			}else if($artefact2 > 0){
+			$fastertroops = 1.5;
+			}else{
+			$fastertroops = 1;
+			}
+$time = round($generator->procDistanceTime($from,$to,300,0)/$fastertroops);
 
 echo '<pre>';
-//print_r($founder);
 echo '</pre>';
 ?>
-
 <h1>Found new village</h1>
-<!--<p>De kolonisten kunnen nog niet vertrekken.<br> Voor het stichten van een nieuw dorp is er nog 750 grondstoffen hout, klei, ijzer en graan nodig.</p>-->
 				<form method="POST" action="build.php">
 				<input type="hidden" name="a" value="new" />
 				<input type="hidden" name="c" value="5" />

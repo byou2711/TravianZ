@@ -26,7 +26,7 @@ class Units {
 				break;
 					
 				case "2":
-				if (isset($post['a'])&& $post['a']==533374){
+				if (isset($post['a'])&& $post['a']==533374 && $post['disabledr'] == ""){
 				$this->sendTroops($post);
 				}else{
 				$post = $this->loadUnits($post);
@@ -39,7 +39,7 @@ class Units {
 				break;	
 				
 				case "3":
-				if (isset($post['a'])&& $post['a']==533374){
+				if (isset($post['a'])&& $post['a']==533374 && $post['disabled'] == ""){
 				$this->sendTroops($post);
 				}else{
 				$post = $this->loadUnits($post);
@@ -70,6 +70,35 @@ class Units {
 		global $database,$village,$session,$generator,$logging,$form;
 				// Busqueda por nombre de pueblo
 				// Confirmamos y buscamos las coordenadas por nombre de pueblo
+					if($post['x']!="" && $post['y']!=""){
+					$oid = $database->getVilWref($post['x'],$post['y']);
+					}else if($post['dname']!=""){
+					$oid = $database->getVillageByName($post['dname']);
+					}
+					if($database->isVillageOases($oid) != 0){
+				    $too = $database->getOasisField($oid,"conqured");
+					if($too['conqured'] == 0){$disabledr ="disabled=disabled"; $disabled ="disabled=disabled";}else{
+					$disabledr ="";
+					if($session->sit == 0){
+					$disabled ="";
+					}else{
+					$disabled ="disabled=disabled";
+					}
+					}
+					}else{
+					$disabledr ="";
+					if($session->sit == 0){
+					$disabled ="";
+					}else{
+					$disabled ="disabled=disabled";
+					}
+					}
+				if($disabledr != "" && $post['c'] == 2){
+				$form->addError("error","You can't reinforce this village/oasis");				
+				}
+				if($disabled != "" && $post['c'] == 3){
+				$form->addError("error","You can't attack this village/oasis with normal attack");				
+				}
 				if(	!$post['t1'] && !$post['t2'] && !$post['t3'] && !$post['t4'] && !$post['t5'] && 
 					!$post['t6'] && !$post['t7'] && !$post['t8'] && !$post['t9'] && !$post['t10'] && !$post['t11']){
 				$form->addError("error","You need to mark min. one troop");				
@@ -277,14 +306,33 @@ class Units {
 				$speeds[] = $herodata['speed'];
 			}
 		}
-				
-		$time = $generator->procDistanceTime($from,$to,min($speeds),1);
-        if (isset($post['ctar1'])){$post['ctar1'] = $post['ctar1'];}else{ $post['ctar1'] = 0;}
-        if (isset($post['ctar2'])){$post['ctar2'] = $post['ctar2'];}else{ $post['ctar2'] = 0;}  
+      		$artefact = count($database->getOwnUniqueArtefactInfo2($session->uid,2,3,0));
+			$artefact1 = count($database->getOwnUniqueArtefactInfo2($village->wid,2,1,1));
+			$artefact2 = count($database->getOwnUniqueArtefactInfo2($session->uid,2,2,0));
+			if($artefact > 0){
+			$fastertroops = 3;
+			}else if($artefact1 > 0){
+			$fastertroops = 2;
+			}else if($artefact2 > 0){
+			$fastertroops = 1.5;
+			}else{
+			$fastertroops = 1;
+			}
+		$time = round($generator->procDistanceTime($from,$to,min($speeds),1)/$fastertroops);
+		$to_owner = $database->getVillageField($data['to_vid'],"owner");
+		$artefact_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,3,0));
+		$artefact1_2 = count($database->getOwnUniqueArtefactInfo2($data['to_vid'],7,1,1));
+		$artefact2_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,2,0));
+        if (isset($post['ctar1'])){if($artefact_2 > 0 or $artefact1_2 > 0 or $artefact2_2 > 0){$post['ctar1'] = 99;}else{$post['ctar1'] = $post['ctar1'];}}else{ $post['ctar1'] = 0;}
+        if (isset($post['ctar2'])){if($artefact_2 > 0 or $artefact1_2 > 0 or $artefact2_2 > 0){$post['ctar2'] = 99;}else{$post['ctar2'] = $post['ctar2'];}}else{ $post['ctar2'] = 0;}  
         if (isset($post['spy'])){$post['spy'] = $post['spy'];}else{ $post['spy'] = 0;} 
 		$abdata = $database->getABTech($village->wid);
 		$reference = $database->addAttack(($village->wid),$data['u1'],$data['u2'],$data['u3'],$data['u4'],$data['u5'],$data['u6'],$data['u7'],$data['u8'],$data['u9'],$data['u10'],$data['u11'],$data['type'],$post['ctar1'],$post['ctar2'],$post['spy'],$abdata['b1'],$abdata['b2'],$abdata['b3'],$abdata['b4'],$abdata['b5'],$abdata['b6'],$abdata['b7'],$abdata['b8']);
-  		$database->addMovement(3,$village->wid,$data['to_vid'],$reference,time(),($time+time()));
+  		$checkexist = $database->checkVilExist($data['to_vid']);
+  		$checkoexist = $database->checkOasisExist($data['to_vid']);
+		if($checkexist or $checkoexist){
+		$database->addMovement(3,$village->wid,$data['to_vid'],$reference,time(),($time+time()));
+		}
    
 		if($form->returnErrors() > 0) {
 			$_SESSION['errorarray'] = $form->getErrors();
@@ -390,7 +438,19 @@ class Units {
 					} else {
 						$post['t11']='0';
 					}
-				$time = $generator->procDistanceTime($fromCor,$toCor,min($speeds),1);
+      		$artefact = count($database->getOwnUniqueArtefactInfo2($session->uid,2,3,0));
+			$artefact1 = count($database->getOwnUniqueArtefactInfo2($village->wid,2,1,1));
+			$artefact2 = count($database->getOwnUniqueArtefactInfo2($session->uid,2,2,0));
+			if($artefact > 0){
+			$fastertroops = 3;
+			}else if($artefact1 > 0){
+			$fastertroops = 2;
+			}else if($artefact2 > 0){
+			$fastertroops = 1.5;
+			}else{
+			$fastertroops = 1;
+			}
+				$time = round($generator->procDistanceTime($fromCor,$toCor,min($speeds),1)/$fastertroops);
 				$reference = $database->addAttack($enforce['from'],$post['t1'],$post['t2'],$post['t3'],$post['t4'],$post['t5'],$post['t6'],$post['t7'],$post['t8'],$post['t9'],$post['t10'],$post['t11'],2,0,0,0,0);
 				$database->addMovement(4,$village->wid,$enforce['from'],$reference,time(),($time+time()));
 				$technology->checkReinf($post['ckey']);
@@ -410,15 +470,15 @@ class Units {
 	
 	public function Settlers($post) {
 		global $form, $database, $village, $session;
-		
+		if($session->access != BANNED){
     $mode = CP; 
     $total = count($database->getProfileVillages($session->uid)); 
     $need_cps = ${'cp'.$mode}[$total];
     $cps = $session->cp;
-
+	$rallypoint = $database->getResourceLevel($village->wid);
+	if($rallypoint['f39'] > 0){
     if($cps >= $need_cps) {
      $unit = ($session->tribe*10);
-      
 		  $database->modifyResource($village->wid,750,750,750,750,0);
 		  $database->modifyUnit($village->wid,array($unit),array(3),array(0));
 		  $database->addMovement(5,$village->wid,$post['s'],0,time(),$post['timestamp']);
@@ -431,7 +491,13 @@ class Units {
 		  }
     } else {
       header("Location: build.php?id=39");
-    }	
+    }
+	}else{
+      header("Location: dorf1.php");
+	}
+	}else{
+		header("Location: banned.php");
+	}
 	}
 
 	public function Hero($uid) {

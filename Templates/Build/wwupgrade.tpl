@@ -7,11 +7,20 @@ $needed_plan = 1;
 }else{
 $needed_plan = 0;
 }
+if($session->alliance != 0){
 $alli_users = $database->getUserByAlliance($session->alliance);
 $wwbuildingplan = 0;
-
 foreach($alli_users as $users){
 $villages = $database->getVillagesID($users['id']);
+foreach($villages as $village1){
+$plan = count($database->getOwnArtefactInfoByType2($village1,11));
+if($plan > 0){
+$wwbuildingplan += 1;
+}
+}
+}
+}else{
+$villages = $database->getVillagesID($session->uid);
 foreach($villages as $village1){
 $plan = count($database->getOwnArtefactInfoByType2($village1,11));
 if($plan > 0){
@@ -42,7 +51,7 @@ if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1) {
 <?php
     if($bindicate == 2) {
    		echo "<span class=\"none\">The workers are already at work.</span>";
-	if($session->goldclub){
+	if($session->goldclub == 1){
 ?>	</br>
 <?php
 	if($id <= 18) {
@@ -66,7 +75,7 @@ if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1) {
     }
     else if($bindicate == 3) {
     	echo "<span class=\"none\">The workers are already at work. (waiting loop)</span>";
-	if($session->goldclub){
+	if($session->goldclub == 1){
 ?>	</br>
 <?php
 	if($id <= 18) {
@@ -100,7 +109,7 @@ if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1) {
     else if($bindicate == 7) {
     	$neededtime = $building->calculateAvaliable($id,$village->resarray['f'.$id.'t'],1+$loopsame+$doublebuild+$master);
     	echo "<span class=\"none\">Enough resources ".$neededtime[0]." at  ".$neededtime[1]."</span>";
-	if($session->goldclub){
+	if($session->goldclub == 1){
 ?>	</br>
 <?php
 	if($id <= 18) {

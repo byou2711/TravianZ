@@ -150,7 +150,7 @@ if(T4_COMING==true){
                 <a href="../index.php#spielregeln" target="_blank"><?php echo SPIELREGELN; ?></a> |
                 <a href="../index.php#impressum" target="_blank"><?php echo SPIELREGELN; ?></a>
                 <br />
-				© 2011 TravianMaX | By <a href="http://zzjhons.com">ZZJHONS</a>
+				© 2012 TravianMaX
             </div>
         </div>
     </div>

@@ -22,10 +22,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%a2b` (
-  `id` int(255) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ckey` varchar(255) NOT NULL,
-  `time_check` int(255) unsigned NOT NULL DEFAULT '0',
-  `to_vid` int(255) unsigned NOT NULL,
+  `time_check` int(11) unsigned NOT NULL DEFAULT '0',
+  `to_vid` int(11) unsigned NOT NULL,
   `u1` int(11) unsigned NOT NULL,
   `u2` int(11) unsigned NOT NULL,
   `u3` int(11) unsigned NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE `%PREFIX%links` (
 --
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%abdata` (
-  `vref` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `vref` int(10) unsigned NOT NULL,
   `a1` tinyint(2) unsigned NOT NULL DEFAULT '0',
   `a2` tinyint(2) unsigned NOT NULL DEFAULT '0',
   `a3` tinyint(2) unsigned NOT NULL DEFAULT '0',
@@ -443,7 +443,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%deleting` (
 --
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%demolition` (
-  `vref` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `vref` int(10) unsigned NOT NULL,
   `buildnumber` int(10) unsigned NOT NULL DEFAULT '0',
   `lvl` int(10) unsigned NOT NULL DEFAULT '0',
   `timetofinish` int(11) NOT NULL,
@@ -789,23 +789,24 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%gold_fin_log` (
 --
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%hero` (
-  `heroid` smallint(2) unsigned NOT NULL AUTO_INCREMENT,
-  `uid` smallint(2) unsigned NOT NULL,
+  `heroid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `uid` int(11) unsigned NOT NULL,
   `unit` smallint(2) unsigned NOT NULL,
   `name` tinytext NOT NULL,
-  `wref` mediumint(3) unsigned NOT NULL,
-  `level` tinyint(1) unsigned NOT NULL,
-  `points` smallint(2) unsigned NOT NULL,
-  `experience` mediumint(3) NOT NULL,
+  `wref` int(11) unsigned NOT NULL,
+  `level` mediumint(3) unsigned NOT NULL,
+  `points` mediumint(3) unsigned NOT NULL,
+  `experience` int(11) NOT NULL,
   `dead` tinyint(1) unsigned NOT NULL,
   `health` float(12,9) unsigned NOT NULL,
-  `attack` tinyint(1) unsigned NOT NULL,
-  `defence` tinyint(1) unsigned NOT NULL,
-  `attackbonus` tinyint(1) unsigned NOT NULL,
-  `defencebonus` tinyint(1) unsigned NOT NULL,
-  `regeneration` tinyint(1) unsigned NOT NULL,
+  `attack` tinyint(3) unsigned NOT NULL,
+  `defence` tinyint(3) unsigned NOT NULL,
+  `attackbonus` tinyint(3) unsigned NOT NULL,
+  `defencebonus` tinyint(3) unsigned NOT NULL,
+  `regeneration` tinyint(3) unsigned NOT NULL,
   `autoregen` int(2) NOT NULL,
   `trainingtime` int(11) unsigned NOT NULL,
+  `inrevive` tinyint(1) unsigned NOT NULL,
   PRIMARY KEY (`heroid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
@@ -957,6 +958,11 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%movement` (
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `proc` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `send` tinyint(1) unsigned NOT NULL,
+  `wood` int(11) unsigned NOT NULL,
+  `clay` int(11) unsigned NOT NULL,
+  `iron` int(11) unsigned NOT NULL,
+  `crop` int(11) unsigned NOT NULL,
   PRIMARY KEY (`moveid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -1027,7 +1033,9 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%odata` (
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%online` (
   `name` varchar(32) NOT NULL,
+  `uid` int(10) unsigned NOT NULL,
   `time` varchar(32) NOT NULL,
+  `sit` tinyint(1) unsigned NOT NULL,
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -1082,6 +1090,34 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%research` (
 
 --
 -- Dumping data for table `%prefix%research`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `%prefix%route`
+--
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%route` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `uid` int(11) unsigned NOT NULL,
+  `wid` int(11) unsigned NOT NULL,
+  `from` int(11) unsigned NOT NULL,
+  `wood` int(5) unsigned NOT NULL,
+  `clay` int(5) unsigned NOT NULL,
+  `iron` int(5) unsigned NOT NULL,
+  `crop` int(5) unsigned NOT NULL,
+  `start` tinyint(2) unsigned NOT NULL,
+  `deliveries` tinyint(1) unsigned NOT NULL,
+  `merchant` int(11) unsigned NOT NULL,
+  `timestamp` int(11) unsigned NOT NULL,
+  `timeleft` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `%prefix%route`
 --
 
 
@@ -1319,6 +1355,26 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `oldrank` bigint(255) unsigned NOT NULL DEFAULT '0',
   `regtime` int(10) unsigned NOT NULL DEFAULT '0',
   `invited` int(10) unsigned NOT NULL DEFAULT '0',
+  `friend0` int(10) unsigned NOT NULL,
+  `friend1` int(10) unsigned NOT NULL,
+  `friend2` int(10) unsigned NOT NULL,
+  `friend3` int(10) unsigned NOT NULL,
+  `friend4` int(10) unsigned NOT NULL,
+  `friend5` int(10) unsigned NOT NULL,
+  `friend6` int(10) unsigned NOT NULL,
+  `friend7` int(10) unsigned NOT NULL,
+  `friend8` int(10) unsigned NOT NULL,
+  `friend9` int(10) unsigned NOT NULL,
+  `friend10` int(10) unsigned NOT NULL,
+  `friend11` int(10) unsigned NOT NULL,
+  `friend12` int(10) unsigned NOT NULL,
+  `friend13` int(10) unsigned NOT NULL,
+  `friend14` int(10) unsigned NOT NULL,
+  `friend15` int(10) unsigned NOT NULL,
+  `friend16` int(10) unsigned NOT NULL,
+  `friend17` int(10) unsigned NOT NULL,
+  `friend18` int(10) unsigned NOT NULL,
+  `friend19` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
@@ -1403,3 +1459,23 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%password` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+
+--
+-- Dumping data for table `%prefix%password`
+--
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `%prefix%ww_attacks`
+--
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%ww_attacks` (
+  `vid` int(25) NOT NULL,
+  `attack_time` int(25) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+
+--
+-- Dumping data for table `%prefix%password`
+--
+
+-- --------------------------------------------------------
