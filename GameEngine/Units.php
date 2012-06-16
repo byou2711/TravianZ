@@ -73,7 +73,7 @@ class Units {
 					if($post['x']!="" && $post['y']!=""){
 					$oid = $database->getVilWref($post['x'],$post['y']);
 					}else if($post['dname']!=""){
-					$oid = $database->getVillageByName($post['dname']);
+					$oid = $database->getVillageByName(stripslashes($post['dname']));
 					}
 					if($database->isVillageOases($oid) != 0){
 				    $too = $database->getOasisField($oid,"conqured");
@@ -401,7 +401,7 @@ class Units {
 					for($i=$start;$i<=$end;$i++){
 						$database->modifyEnforce($post['ckey'],$i,$post['t'.$j.''],0); $j++;
 					}
-				
+						$database->modifyEnforce($post['ckey'],'hero',$post['t11'],0); $j++;
 						//get cord 
 						$from = $database->getVillage($enforce['from']);
 						$fromcoor = $database->getCoor($enforce['from']);

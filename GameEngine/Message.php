@@ -40,7 +40,7 @@
         					break;
         				case "m2":
                         if ($post['an'] == "[ally]"){
-                        $this->sendAMessage($post['an'],$post['be'],$post['message']);
+                        $this->sendAMessage($post['be'],$post['message']);
                         }else{
                         $this->sendMessage($post['an'],$post['be'],$post['message']);
                         }
@@ -116,6 +116,8 @@
         	public function quoteMessage($id) {
         		foreach($this->inbox as $message) {
         			if($message['id'] == $id) {
+					$message = preg_replace('/\[message\]/', '', $message);
+					$message = preg_replace('/\[\/message\]/', '', $message);
         				$this->reply = $_SESSION['reply'] = $message;
         				header("Location: nachrichten.php?t=1&id=" . $message['owner']);
         			}
@@ -297,10 +299,10 @@
         		$this->totalMessage = count($this->inbox) + count($this->sent);
         	}
             
-            private function sendAMessage($recieve,$topic,$text) {
+            private function sendAMessage($topic,$text) {
                 global $session,$database;
                 $allmembersQ = mysql_query("SELECT id FROM ".TB_PREFIX."users WHERE alliance='".$session->alliance."'");
-                $userally = $database->getUserField($recieve,"alliance",1);
+                $userally = $database->getUserField($session->uid,"alliance",0);
                 $permission=mysql_fetch_array(mysql_query("SELECT opt7 FROM ".TB_PREFIX."ali_permission WHERE uid='".$session->uid."'"));
        
                 if(WORD_CENSOR) {
@@ -418,22 +420,33 @@
 
         	public function addFriends($post) {
         		global $database;
-        		for($i=0;$i<19;$i++) {
+        		for($i=0;$i<=19;$i++) {
         		if($post['addfriends'.$i] != ""){
 				$uid = $database->getUserField($post['addfriends'.$i], "id", 1);
 				$added = 0;
 				for($j=0;$j<=$i;$j++) {
 				if($added == 0){
 				$user = $database->getUserField($post['myid'], "friend".$j, 0);
+				$userwait = $database->getUserField($post['myid'], "friend".$j."wait", 0);
 				$exist = 0;
 				for($k=0;$k<=19;$k++){
 				$user1 = $database->getUserField($post['myid'], "friend".$k, 0);
-				if($user1 == $uid or $user1 == $post['myid']){
+				if($user1 == $uid or $uid == $post['myid']){
 				$exist = 1;
 				}
 				}
-				if($user == 0 && $exist == 0){
+				if($user == 0 && $userwait == 0 && $exist == 0){
+				$added1 = 0;
+				for($l=0;$l<=19;$l++){
+				$user2 = $database->getUserField($uid, "friend".$l, 0);
+				$userwait2 = $database->getUserField($uid, "friend".$l."wait", 0);
+				if($user2 == 0 && $userwait2 == 0 && $added1 == 0){
+				$database->addFriend($uid,"friend".$l."wait",$post['myid']);
+				$added1 = 1;
+				}
+				}
 				$database->addFriend($post['myid'],"friend".$j,$uid);
+				$database->addFriend($post['myid'],"friend".$j."wait",$uid);
 				$added = 1;
 				}
 				}
