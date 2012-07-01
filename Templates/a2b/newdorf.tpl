@@ -28,7 +28,7 @@ echo '</pre>';
 				<input type="hidden" name="c" value="5" />
 				<input type="hidden" name="s" value="<?php echo $_GET['id']; ?>" />
 				<input type="hidden" name="id" value="39" />
-				<input type="hidden" name="timestamp" value="<?php echo time()+$time ?>" />
+				<input type="hidden" name="timestamp" value="<?php echo $time; ?>" />
 		<table class="troop_details" cellpadding="1" cellspacing="1">
 	<thead>
 		<tr>
@@ -71,12 +71,12 @@ echo '</pre>';
 <?php
 $mode = CP; 
 $total = count($database->getProfileVillages($session->uid)); 
-$need_cps = ${'cp'.$mode}[$total];
+$need_cps = ${'cp'.$mode}[$total+1];
 $cps = $session->cp;
 
 if($cps >= $need_cps) {
 ?>
-<input type="image" value="ok" name="s1" id="btn_ok" class="dynamic_img"  alt="OK" src="img/x.gif" />
+<input type="image" value="ok" name="s1" id="btn_ok" class="dynamic_img"  alt="OK" src="img/x.gif" onclick="this.disabled=true;this.form.submit();"/>
 <?php
 } else {
   print "$cps/$need_cps culture points";

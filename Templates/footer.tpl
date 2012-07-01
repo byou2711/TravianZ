@@ -19,7 +19,10 @@
 
 									<center><br />
 
-									<div class="copyright">&copy; 2010 - 2011 TravianMaX All rights reserved</div>
+									<div class="copyright">&copy; 2011 - 2012 TravianMaX All rights reserved</div>
+
+
+													</div>
 
 									</div></center>
 

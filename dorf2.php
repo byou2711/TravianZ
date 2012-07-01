@@ -32,7 +32,7 @@ header("Location: banned.php");
 <html>
 <head>
 	<title><?php echo SERVER_NAME ?></title>
-    <link REL="shortcut icon" HREF="favicon.ico"/>
+	<link REL="shortcut icon" HREF="favicon.ico"/>
 	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="expires" content="0" />
@@ -59,8 +59,8 @@ header("Location: banned.php");
 		window.addEvent('domready', start);
 	</script>
 </head>
- 
- 
+
+
 <body class="v35 ie ie8">
 <div class="wrapper">
 <img style="filter:chroma();" src="img/x.gif" id="msfilter" alt="" />
@@ -70,7 +70,7 @@ header("Location: banned.php");
 <div id="mid">
 <?php include("Templates/menu.tpl"); ?>
 		<div id="content"  class="village2">
-<h1><?php echo $village->vname; if($village->loyalty!='100'){ if($village->loyalty>'33'){ $color="gr"; }else{ $color="re"; } ?><div id="loyality" class="<?php echo $color; ?>"><?php echo LOYALTY; ?> <?php echo floor($village->loyalty); ?>%</div><?php } ?></h1>
+<h1><?php echo $village->vname; if($village->loyalty!='100'){ if($village->loyalty>'33'){ $color="green"; }else{ $color="red"; } ?><div id="loyality"><span style="color:<?php echo $color; ?>;font-size:xx-small;" size><?php echo LOYALTY; ?> <?php echo floor($village->loyalty); ?>%</span></div><?php } ?></h1>
 <?php include("Templates/dorf2.tpl");
 if($building->NewBuilding) {
 	include("Templates/Building.tpl");
@@ -89,9 +89,9 @@ include("Templates/links.tpl");
 </div>
 <div class="footer-stopper"></div>
 <div class="clear"></div>
-<?php 
-include("Templates/footer.tpl"); 
-include("Templates/res.tpl"); 
+<?php
+include("Templates/footer.tpl");
+include("Templates/res.tpl");
 ?>
 <div id="stime">
 <div id="ltime">
@@ -99,7 +99,7 @@ include("Templates/res.tpl");
 Calculated in <b><?php
 echo round(($generator->pageLoadTimeEnd()-$start)*1000);
 ?></b> ms
- 
+
 <br />Server time: <span id="tp1" class="b"><?php echo date('H:i:s'); ?></span>
 </div>
 	</div>
