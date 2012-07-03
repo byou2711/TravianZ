@@ -795,8 +795,8 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%hero` (
   `unit` smallint(2) unsigned NOT NULL,
   `name` tinytext NOT NULL,
   `wref` int(11) unsigned NOT NULL,
-  `level` mediumint(3) unsigned NOT NULL,
-  `points` mediumint(3) unsigned NOT NULL,
+  `level` tinyint(3) unsigned NOT NULL,
+  `points` int(3) unsigned NOT NULL,
   `experience` int(11) NOT NULL,
   `dead` tinyint(1) unsigned NOT NULL,
   `health` float(12,9) unsigned NOT NULL,
@@ -1024,6 +1024,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%odata` (
   `loyalty` int(11) NOT NULL DEFAULT '100',
   `owner` int(11) unsigned NOT NULL DEFAULT '2',
   `name` varchar(32) NOT NULL DEFAULT 'Unoccupied Oasis',
+  `high` tinyint(1) unsigned NOT NULL,
   PRIMARY KEY (`wref`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -1049,6 +1050,35 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%online` (
 --
 -- Dumping data for table `%prefix%online`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `%PREFIX%prisoners`
+--
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%prisoners` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `wref` int(11) unsigned NOT NULL,
+  `from` int(11) unsigned NOT NULL,
+  `t1` int(11) unsigned NOT NULL,
+  `t2` int(11) unsigned NOT NULL,
+  `t3` int(11) unsigned NOT NULL,
+  `t4` int(11) unsigned NOT NULL,
+  `t5` int(11) unsigned NOT NULL,
+  `t6` int(11) unsigned NOT NULL,
+  `t7` int(11) unsigned NOT NULL,
+  `t8` int(11) unsigned NOT NULL,
+  `t9` int(11) unsigned NOT NULL,
+  `t10` int(11) unsigned NOT NULL,
+  `t11` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `%PREFIX%prisoners`
+--
+
 
 -- --------------------------------------------------------
 

@@ -34,9 +34,6 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $maxcarry && ($_POST
 <form method="POST" name="snd" action="build.php"> 
 <input type="hidden" name="ft" value="mk1">
 <input type="hidden" name="id" value="<?php echo $id; ?>">
-<input type="hidden" name="x" value="<?php echo $_POST['x']; ?>">
-<input type="hidden" name="y" value="<?php echo $_POST['y']; ?>">
-<input type="hidden" name="dname" value="<?php echo $_POST['dname']; ?>">
 <input type="hidden" name="send3" value="<?php echo $_POST['send3']; ?>">
 <table id="send_select" class="send_res" cellpadding="1" cellspacing="1">
 	<tr>
@@ -108,6 +105,7 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $maxcarry && ($_POST
 	</tr>
 
 </tbody></table>
+<input type="hidden" name="getwref" value="<?php echo $getwref; ?>">
 <div class="clear"></div>
 <p>
 <div class="clear"></div><p><input type="image" value="ok" name="s1" id="btn_ok" class="dynamic_img" src="img/x.gif" tabindex="8" alt="OK" <?php if(!$market->merchantAvail()) { echo "DISABLED"; }?>/></p></form>
@@ -213,6 +211,8 @@ if(isset($_POST['ft'])=='check'){
 
 	if(!$checkexist){
 		$error = '<span class="error"><b>No Coordinates selected</b></span>';
+	}elseif($getwref == $village->wid){
+		$error = '<span class="error"><b>You cannot send resources to the same village</b></span>';
 	}elseif($userAccess == '0' or $userAccess == '8' or $userAccess == '9'){
 		$error = '<span class="error"><b>Player is Banned. You cannot send resources to him.</b></span>';
     }elseif($_POST['r1']==0 && $_POST['r2']==0 && $_POST['r3']==0 && $_POST['r4']==0){

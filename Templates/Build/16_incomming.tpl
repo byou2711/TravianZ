@@ -59,7 +59,11 @@ if ($units[$y]['sort_type']==3){
                 echo $units[$y]['t'.$i]."</td>";
 				}
 				  }}else{
-				  if($totalunits > $building->getTypeLevel(16)){
+				$artefact = count($database->getOwnUniqueArtefactInfo2($session->uid,3,3,0));
+				$artefact1 = count($database->getOwnUniqueArtefactInfo2($village->wid,3,1,1));
+				$artefact2 = count($database->getOwnUniqueArtefactInfo2($session->uid,3,2,0));
+				$total_artefact = $artefact + $artefact1 + $artefact2;
+				  if($totalunits > $building->getTypeLevel(16) && $total_artefact == 0){
                  		echo "<td class=\"none\">?</td>";
                   }else{
 				  if($units[$y]['t'.$i] == 0) {
@@ -82,7 +86,7 @@ if ($units[$y]['sort_type']==3){
 										    if($datetime[0] != "today") {
 										    echo "on ".$datetime[0]." ";
 										    }
-										    echo "at ".$datetime[1]."</div>
+										    echo "at ".$datetime[1]." hours</div>
 											</div>
 										</td>
 									</tr>

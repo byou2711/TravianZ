@@ -22,6 +22,27 @@ header("Location: install/");
 }
 
 include ("GameEngine/config.php");
+/*
+if($_SERVER['HTTP_HOST'] != 'YOUR_DOMAIN')
+{
+    header('location: '.SERVER.'');
+    exit;
+}
+*/
+
+// delete the /* and the */ if you not use localhost.
+
+error_reporting(E_ALL || E_NOTICE);
+
+if(file_exists('Security/Security.class.php'))
+{
+    require 'Security/Security.class.php';
+    Security::instance();
+}
+else
+{
+    die('Security: Please activate security class!');
+}
 include ("GameEngine/Database.php");
 include ("GameEngine/Lang/".LANG.".php");
 ?>

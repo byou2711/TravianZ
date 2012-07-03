@@ -45,7 +45,6 @@ div.c1 {text-align: center}
                     echo "<a href=\"medals.php\">Update Top 10</a>";
                     echo "<a href=\"sysmsg.php\">System message</a>";
 					echo "<a href=\"create_account.php\">Create Natars</a>";
-					echo "<a href=\"oasis_populate.php\"><font color=\"blue\">Populate Oasis</font></a>";
                     } ?> <a href="logout.php"><?php echo LOGOUT; ?></a></p>
 
 		<a href="rules.php"><b>Game Rules</b></a> 
@@ -72,13 +71,12 @@ div.c1 {text-align: center}
 
     <div id="content" class="village1">
         <h1>Announcement</h1>
-
-        <h2>Hi <?php echo $session->username; ?>,</h2>
-        <br>
+</br>
+        <h3>Hi <?php echo $session->username; ?>,</h3>
         <?php include("Templates/text.tpl"); ?>
-
         <div class="c1">
-            <h2><a href="dorf1.php?ok">&raquo; Go to my village</a></h2>
+		</br>
+            <h3><a href="dorf1.php?ok">&raquo; Go to my village</a></h3>
         </div>
     </div>
 
