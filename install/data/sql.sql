@@ -467,7 +467,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%diplomacy` (
   `alli1` int(11) unsigned NOT NULL,
   `alli2` int(11) unsigned NOT NULL,
   `type` tinyint(1) unsigned NOT NULL,
-  `accepted` int(1) NOT NULL,
+  `accepted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 --
@@ -1475,6 +1475,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%vdata` (
 `created` int(11) NOT NULL,
 `natar` tinyint(1) unsigned NOT NULL,
 `starv` int(11) unsigned NOT NULL,
+`starvupdate` int(11) unsigned NOT NULL,
 `evasion` tinyint(1) unsigned NOT NULL,
 PRIMARY KEY (`wref`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
