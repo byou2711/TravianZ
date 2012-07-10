@@ -21,7 +21,6 @@ function loadProductGroup(group_id) {
 //-->
 </script>
 <h1>Donate for the <?php echo SERVER_NAME ?></h1>
-<?php echo SERVER_NAME ?> has written the script that this server is using. Script is free at the moment, so keep it that way by donating small anmount!<br/><br/>
 
 <center><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -59,7 +58,7 @@ if($session->access != BANNED){
                                                 <td>30&nbsp;Gold</td>
                                         </tr>
                                         <tr>
-                                                <td>1.00&nbsp;USD</td>
+                                                <td>N/A Yet</td>
 
                                         </tr>
                                         <tr>
@@ -95,7 +94,7 @@ if($session->access != BANNED){
                                                 <td>100&nbsp;Gold</td>
                                         </tr>
                                         <tr>
-                                                <td>3.00&nbsp;USD</td>
+                                                <td>N/A Yet</td>
 
                                         </tr>
                                         <tr>
@@ -131,7 +130,7 @@ if($session->access != BANNED){
                                                 <td>250&nbsp;Gold</td>
                                         </tr>
                                         <tr>
-                                                <td>6.00&nbsp;USD</td>
+                                                <td>N/A Yet</td>
 
                                         </tr>
                                         <tr>
@@ -166,7 +165,7 @@ if($session->access != BANNED){
                                                 <td>600&nbsp;Gold</td>
                                         </tr>
                                         <tr>
-                                                <td>12.00&nbsp;USD</td>
+                                                <td>N/A Yet</td>
 
                                         </tr>
                                         <tr>
@@ -202,7 +201,7 @@ if($session->access != BANNED){
                                                 <td>1600&nbsp;Gold</td>
                                         </tr>
                                         <tr>
-                                                <td>34.00&nbsp;USD</td>
+                                                <td>N/A Yet</td>
 
                                         </tr>
                                         <tr>
